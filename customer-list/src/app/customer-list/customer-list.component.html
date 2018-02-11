@@ -1,0 +1,9 @@
+<h2>My Customers</h2>
+<ul class="customers">
+  <li *ngFor="let customer of customers"
+    [class.selected]="customer === selectedCustomer"
+    (click)="onSelect(customer)">
+    <span class="badge">{{customer.id}}</span> {{customer.name}} - {{customer.address}}
+  </li>
+</ul>
+  
