@@ -1,2 +1,2 @@
 # angular-warmup
-Angular Warmup Project
+AAngular Warmup Project
