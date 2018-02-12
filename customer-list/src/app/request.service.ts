@@ -13,8 +13,8 @@ export class RequestService {
 
   constructor(private http: HttpClient) {}
 
-  simpleGetJson(url: string) : Observable<any> {
-    console.log('RequestService simpleGetJson url: ' +  url);
+  get(url: string) : Observable<any> {
+    console.log('RequestService get url: ' +  url);
     return this.http
       .get(this.serverUrl + url);
   }

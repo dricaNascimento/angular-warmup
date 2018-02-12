@@ -8,12 +8,12 @@ export class CustomerService {
   constructor(private requestService: RequestService) {}
 
   getCustomers() {
-    return this.requestService.simpleGetJson('/customers');
+    return this.requestService.get('/customers');
   }
 
   getCustomer(id: string): Observable<Customer> {
     const url = `/customers/${id}`;
-    return this.requestService.simpleGetJson(url);
+    return this.requestService.get(url);
   }
 
   addCustomer(customer: Customer): void {
@@ -26,11 +26,9 @@ export class CustomerService {
   }
 
   deleteCustomer(customer: Customer): void {
-    if(customer) {
-      const customer_id = customer.cid;
-      const url = `/customers/delete/${customer_id}`;
-      this.requestService.delete(url);
-    }
+    const customer_id = customer.cid;
+    const url = `/customers/delete/${customer_id}`;
+    this.requestService.delete(url);
   }
 
 }
