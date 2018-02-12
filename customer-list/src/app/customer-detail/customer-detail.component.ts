@@ -18,10 +18,10 @@ export class CustomerDetailComponent implements OnInit {
     private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
-    this.getHero();
+    this.getCustomer();
   }
 
-  getHero(): void {
+  getCustomer(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.customerService.getCustomer(id)
       .subscribe(customerParameter => this.customer = customerParameter);
@@ -29,6 +29,20 @@ export class CustomerDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  updateCustomer(name: string, address: string) {
+    name = name.trim();
+    address = address.trim();
+    if (!name || !address) { return; }
+
+    let updatedCustomer = new Customer();
+    updatedCustomer.id = this.customer.id;
+    updatedCustomer.name = name;
+    updatedCustomer.address = address;
+
+    this.customerService.updateCustomer(updatedCustomer);
+    this.goBack();
   }
 
 }

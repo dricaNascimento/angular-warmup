@@ -8,7 +8,8 @@ const httpOptions = {
 
 @Injectable()
 export class RequestService {
-  serverUrl : string = "http://192.168.0.103:8080/TesteRestEJB/rest";
+
+  serverUrl : string = "http://192.168.0.103:8080/poc/api";
 
   constructor(private http: HttpClient) {}
 
@@ -21,6 +22,12 @@ export class RequestService {
   post (url: string, entity: any) {
     console.log('RequestService post url: ' +  url);
     return this.http.post<any>(this.serverUrl + url, entity, httpOptions)
+      .subscribe();
+  }
+
+  put(url: string, entity: any) {
+    console.log('RequestService put url: ' +  url);
+    return this.http.put<any>(this.serverUrl + url, entity, httpOptions)
       .subscribe();
   }
 

@@ -20,6 +20,11 @@ export class CustomerService {
     this.requestService.post('/customers/new', customer);
   }
 
+  updateCustomer(customer: Customer): void {
+    const url = `/customers/update/${customer.id}`;
+    this.requestService.put(url, customer);
+  }
+
   deleteCustomer(customer: Customer): void {
     if(customer) {
       const id = customer.id;
