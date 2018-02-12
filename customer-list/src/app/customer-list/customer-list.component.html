@@ -1,9 +1,12 @@
 <h2>My Customers</h2>
 <ul class="customers">
-  <li *ngFor="let customer of customers"
-    [class.selected]="customer === selectedCustomer"
-    (click)="onSelect(customer)">
-    <span class="badge">{{customer.id}}</span> {{customer.name}} - {{customer.address}}
+  <li *ngFor="let customer of customers">
+    <a routerLink="/customer/{{customer.id}}">
+      <span class="badge">{{customer.id}}</span> {{customer.name}} - {{customer.address}}
+    </a>
+    <button class="delete" title="delete Customer"
+    (click)="delete(customer)">x</button>
   </li>
 </ul>
-<app-customer-detail [customer]="selectedCustomer"></app-customer-detail>
+
+<a routerLink="/customers/new">New Customer</a>

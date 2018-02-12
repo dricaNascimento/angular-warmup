@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from '../customer';
-import { CUSTOMERS } from '../mock-customers';
 import { CustomerService } from '../customer.service';
 
 @Component({
@@ -12,16 +11,17 @@ export class CustomerListComponent implements OnInit {
 
   customers: Customer[];
  
-  selectedCustomer: Customer;
- 
   constructor(private customerService: CustomerService ) { }
  
   ngOnInit() {
     this.customerService.getCustomers().subscribe(customers => this.customers = customers);
   }
- 
-  onSelect(customer: Customer): void {
-    this.selectedCustomer = customer;
+
+  delete(customer: Customer): void {
+    this.customers = this.customers.filter(h => h !== customer);
+    this.customerService.deleteCustomer(customer);
+    //this.customerService.getCustomers().subscribe(customers => this.customers = customers);
+    console.log("deletar " + customer.name);
   }
 
 }

@@ -1,0 +1,11 @@
+<div>
+  <label>Customer name:
+    <input #customerName />
+  </label>
+  <label>Customer address:
+    <input #customerAddress />
+  </label>
+  <button (click)="add(customerName.value, customerAddress.value); customerName.value=''; customerAddress.value=''">
+    add
+  </button>
+</div>

@@ -8,16 +8,19 @@ import { CustomerDetailComponent } from './customer-detail/customer-detail.compo
 import { CustomerService } from './customer.service';
 import { RequestService } from './request.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { NewCustomerComponent } from './new-customer/new-customer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerListComponent,
-    CustomerDetailComponent
+    CustomerDetailComponent,
+    NewCustomerComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule, HttpClientModule
+    FormsModule, HttpClientModule, AppRoutingModule
   ],
   providers: [RequestService, CustomerService],
   bootstrap: [AppComponent]

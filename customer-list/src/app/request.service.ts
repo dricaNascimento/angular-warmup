@@ -1,36 +1,33 @@
 import { Injectable } from '@angular/core';
-import { Response, ResponseContentType } from '@angular/http';
-import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/of'
-import { Customer } from './customer';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
 
 @Injectable()
 export class RequestService {
-
   serverUrl : string = "http://192.168.0.103:8080/TesteRestEJB/rest";
-  private headers : Headers;
 
-  constructor(private http: HttpClient) {
-    // OnInit not supported by services
-    this.headers = new Headers({ 'Content-Type': 'application/json' });
-    this.headers.append('Accept', 'application/json, text/xml');
-    this.headers.append('X-Requested-With', 'XMLHttpRequest');
-  }
+  constructor(private http: HttpClient) {}
 
   simpleGetJson(url: string) : Observable<any> {
-
-    console.log(url);
-
-    let options = new RequestOptions({ headers: this.headers });
-
+    console.log('RequestService simpleGetJson url: ' +  url);
     return this.http
-      .get<Customer>(this.serverUrl + url);
+      .get(this.serverUrl + url);
+  }
+
+  post (url: string, entity: any) {
+    console.log('RequestService post url: ' +  url);
+    return this.http.post<any>(this.serverUrl + url, entity, httpOptions)
+      .subscribe();
+  }
+
+  delete(url: string) {
+    console.log('RequestService delete url: ' +  url);
+    return this.http.delete(this.serverUrl + url, httpOptions)
+      .subscribe();
   }
 
 }
