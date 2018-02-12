@@ -1,8 +1,8 @@
 <h2>My Customers</h2>
 <ul class="customers">
   <li *ngFor="let customer of customers">
-    <a routerLink="/customer/{{customer.id}}">
-      <span class="badge">{{customer.id}}</span> {{customer.name}} - {{customer.address}}
+    <a routerLink="/customer/{{customer.cid}}">
+      <span class="badge">{{customer.cid}}</span> {{customer.name}} - {{customer.address}}
     </a>
     <button class="delete" title="delete Customer"
     (click)="delete(customer)">x</button>

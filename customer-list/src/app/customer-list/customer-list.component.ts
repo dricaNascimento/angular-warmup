@@ -20,7 +20,6 @@ export class CustomerListComponent implements OnInit {
   delete(customer: Customer): void {
     this.customers = this.customers.filter(h => h !== customer);
     this.customerService.deleteCustomer(customer);
-    //this.customerService.getCustomers().subscribe(customers => this.customers = customers);
     console.log("deletar " + customer.name);
   }
 

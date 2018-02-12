@@ -22,8 +22,8 @@ export class CustomerDetailComponent implements OnInit {
   }
 
   getCustomer(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.customerService.getCustomer(id)
+    const cid = this.route.snapshot.paramMap.get('id');
+    this.customerService.getCustomer(cid)
       .subscribe(customerParameter => this.customer = customerParameter);
   }
 
@@ -37,7 +37,7 @@ export class CustomerDetailComponent implements OnInit {
     if (!name || !address) { return; }
 
     let updatedCustomer = new Customer();
-    updatedCustomer.id = this.customer.id;
+    updatedCustomer.cid = this.customer.cid;
     updatedCustomer.name = name;
     updatedCustomer.address = address;
 

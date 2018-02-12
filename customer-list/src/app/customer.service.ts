@@ -11,7 +11,7 @@ export class CustomerService {
     return this.requestService.simpleGetJson('/customers');
   }
 
-  getCustomer(id: number): Observable<Customer> {
+  getCustomer(id: string): Observable<Customer> {
     const url = `/customers/${id}`;
     return this.requestService.simpleGetJson(url);
   }
@@ -21,14 +21,14 @@ export class CustomerService {
   }
 
   updateCustomer(customer: Customer): void {
-    const url = `/customers/update/${customer.id}`;
+    const url = '/customers/update';
     this.requestService.put(url, customer);
   }
 
   deleteCustomer(customer: Customer): void {
     if(customer) {
-      const id = customer.id;
-      const url = `/customers/delete/${id}`;
+      const customer_id = customer.cid;
+      const url = `/customers/delete/${customer_id}`;
       this.requestService.delete(url);
     }
   }
