@@ -70,9 +70,9 @@ public class MongoCustomerPersistence implements CustomerPersistence{
 			MongoCollection<Customer> collection = this.getCustomerCollection();
 
 			List<Customer> customers = Arrays.asList(
-					new Customer(this.generateNewId(), "Charles Babbage", "5 Devonshire Street London W11"),
-					new Customer(this.generateNewId(), "Alan Turing", "Bletchley Hall Bletchley Park MK12"),
-					new Customer(this.generateNewId(), "Timothy Berners-Lee", "Colehill Wimborne"));
+					new Customer(this.generateNewId(), "Charles Babbage", "5 Devonshire Street London W11", "+55 11 9 4388 4994"),
+					new Customer(this.generateNewId(), "Alan Turing", "Bletchley Hall Bletchley Park MK12", "+55 11 9 4388 4994"),
+					new Customer(this.generateNewId(), "Timothy Berners-Lee", "Colehill Wimborne", "+55 11 9 4388 4994"));
 
 			collection.insertMany(customers);
 			
@@ -127,7 +127,7 @@ public class MongoCustomerPersistence implements CustomerPersistence{
 	public Customer update(Customer customer) {
 		MongoCollection<Customer> customerCollection = this.getCustomerCollection();
 		Bson filter = Filters.eq("cid", customer.getCid());
-		customerCollection.updateOne(filter, Updates.combine(Updates.set("address", customer.getAddress()),
+		customerCollection.updateOne(filter, Updates.combine(Updates.set("address", customer.getAddress()), Updates.set("phone", customer.getPhone()),
 				Updates.set("name", customer.getName())));
 		return customer;
 	}

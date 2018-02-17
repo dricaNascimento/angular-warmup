@@ -10,13 +10,17 @@ import { RequestService } from './request.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { NewCustomerComponent } from './new-customer/new-customer.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { PhonePipe } from './phone.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerListComponent,
     CustomerDetailComponent,
-    NewCustomerComponent
+    NewCustomerComponent,
+    NavigationBarComponent,
+    PhonePipe
   ],
   imports: [
     BrowserModule,

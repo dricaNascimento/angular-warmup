@@ -9,7 +9,7 @@ const httpOptions = {
 @Injectable()
 export class RequestService {
 
-  serverUrl : string = "http://192.168.0.103:8080/poc/api";
+  serverUrl : string = "http://localhost:8080/poc/api";
 
   constructor(private http: HttpClient) {}
 

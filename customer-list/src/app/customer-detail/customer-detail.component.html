@@ -1,17 +1,46 @@
 <div *ngIf="customer">
-  <h2>{{ customer.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{customer.id}}</div>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Name:</label>
+    </div>
+    <div class="col-sm-6">
+      <input #customerName value="{{customer.name}}"/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Address:</label>
+    </div>
+    <div class="col-sm-6">
+      <input #customerAddress value="{{customer.address}}"/>
+    </div>
+  </div>
   
-  <label>Customer name:
-    <input #customerName value="{{customer.name}}"/>
-  </label>
-  <label>Customer address:
-    <input #customerAddress value="{{customer.address}}"/>
-  </label>
-  <button (click)="updateCustomer(customerName.value, customerAddress.value); customerName.value=''; customerAddress.value=''">
-    update
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Phone number:</label>
+    </div>
+    <div class="col-sm-2">
+      <input #customerPhone value="{{customer.phone}}"/>
+    </div>
+  </div>
+
+  <hr>
+
+  <button class="btn btn-secondary"
+    (click)="goBack()">
+    <i class="mi mi-arrow-back"></i>
+    Back
+  </button>
+
+  <button class="btn btn-primary"
+    (click)="updateCustomer(customerName.value, customerAddress.value, customerPhone.value); 
+      customerName.value=''; customerAddress.value=''; customerPhone.value=''">
+    Update customer
   </button>
 </div>
 
-<button (click)="goBack()">go back</button>
+
 

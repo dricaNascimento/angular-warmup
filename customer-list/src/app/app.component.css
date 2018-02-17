@@ -1,0 +1,16 @@
+main{
+    background: #F9F9F9;
+    padding: 3%;
+}
+section.filter{
+    background: #c6c6c6;
+    padding: .8%;
+}
+section.list{
+    background: #FFF;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0px 0px 3px 3px;
+    padding: 2%;
+    min-height: 60vh;
+}

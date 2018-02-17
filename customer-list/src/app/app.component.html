@@ -1,2 +1,15 @@
-<h1>{{title}}</h1>
-<router-outlet></router-outlet>
+<app-navigation-bar></app-navigation-bar>
+<main>
+    <section class="filter">
+        <ul class="nav">
+            <li class="nav-item" *ngIf="!customer">
+                <a routerLink="/customers/new">
+                    <i class="mi mi-person-add"></i> New customer
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section class="list">
+        <router-outlet></router-outlet>
+    </section>
+</main>

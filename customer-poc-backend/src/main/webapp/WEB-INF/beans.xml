@@ -3,7 +3,7 @@
 	version="1.1" bean-discovery-mode="all">
 
 	<alternatives>
-		<class>adrianan.backend.api.customer.persistence.MockCustomerPersistence</class>
+		<!--class>adrianan.backend.api.customer.persistence.MockCustomerPersistence</class-->
 	</alternatives>
 
 </beans>

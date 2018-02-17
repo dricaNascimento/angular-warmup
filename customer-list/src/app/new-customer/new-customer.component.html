@@ -1,11 +1,41 @@
 <div>
-  <label>Customer name:
-    <input #customerName />
-  </label>
-  <label>Customer address:
-    <input #customerAddress />
-  </label>
-  <button (click)="add(customerName.value, customerAddress.value); customerName.value=''; customerAddress.value=''">
-    add
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Name:</label>
+    </div>
+    <div class="col-sm-6">
+      <input #customerName/>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Address:</label>
+    </div>
+    <div class="col-sm-6">
+      <input #customerAddress />
+    </div>
+  </div>
+ 
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Phone number:</label>
+    </div>
+    <div class="col-sm-2">
+      <input #customerPhone/>
+    </div>
+  </div>
+
+  <hr>
+  <button class="btn btn-secondary"
+    (click)="goBack()">
+    <i class="mi mi-arrow-back"></i>
+    Back
+  </button>
+
+  <button class="btn btn-primary"
+    (click)="add(customerName.value, customerAddress.value, customerPhone.value); 
+      customerName.value=''; customerAddress.value=''; customerPhone.value=''">
+    Add customer
   </button>
 </div>

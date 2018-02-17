@@ -31,15 +31,17 @@ export class CustomerDetailComponent implements OnInit {
     this.location.back();
   }
 
-  updateCustomer(name: string, address: string) {
+  updateCustomer(name: string, address: string, phone: string) {
     name = name.trim();
     address = address.trim();
-    if (!name || !address) { return; }
+    phone = phone.trim();
+    if (!name || !address || !phone) { return; }
 
     let updatedCustomer = new Customer();
     updatedCustomer.cid = this.customer.cid;
     updatedCustomer.name = name;
     updatedCustomer.address = address;
+    updatedCustomer.phone = phone;
 
     this.customerService.updateCustomer(updatedCustomer);
     this.goBack();

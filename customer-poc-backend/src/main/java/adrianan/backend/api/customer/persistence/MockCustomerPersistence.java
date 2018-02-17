@@ -19,9 +19,9 @@ public class MockCustomerPersistence implements CustomerPersistence{
 	@PostConstruct
 	public void init() {
 		this.customers = new LinkedList<>();
-		this.add(new Customer(null, "Luiz", "Recife"));
-		this.add(new Customer(null, "Adriana", "Uruara"));
-		this.add(new Customer(null, "Glaucio", "Escada"));
+		this.add(new Customer(null, "Luiz", "Recife", "+55 11 9 4388 4994"));
+		this.add(new Customer(null, "Adriana", "Uruara", "+55 11 9 4388 4994"));
+		this.add(new Customer(null, "Glaucio", "Escada", "+55 11 9 4388 4994"));
 	}
 
 	private Long lastId = 0L;

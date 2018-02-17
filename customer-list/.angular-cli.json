@@ -19,6 +19,10 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
+        "../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css",
+        "../node_modules/material-icons/css/material-icons.css",
         "styles.css"
       ],
       "scripts": [],

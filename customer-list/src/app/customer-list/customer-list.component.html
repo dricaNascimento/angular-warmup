@@ -1,12 +1,35 @@
-<h2>My Customers</h2>
-<ul class="customers">
-  <li *ngFor="let customer of customers">
-    <a routerLink="/customer/{{customer.cid}}">
-      <span class="badge">{{customer.cid}}</span> {{customer.name}} - {{customer.address}}
-    </a>
-    <button class="delete" title="delete Customer"
-    (click)="delete(customer)">x</button>
-  </li>
-</ul>
-
-<a routerLink="/customers/new">New Customer</a>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let customer of customers" style="padding: 0.8rem;">
+        <div class="card"> 
+          <div class="card-body">
+            
+              <div class="wrapper">
+                <div class="box1">
+                  <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAi_AAAAJDkxOWE3NjRlLWE5NGYtNGQ4Mi1iNTBmLTZhMDVkMzIwYmJmMw.jpg" alt="..." class="rounded-circle" style="width: 55px;">
+                </div>
+                <div class="box2">
+                  <h6 class="card-title">{{customer.name}}</h6>
+                </div>
+                <div class="box3">{{customer.phone | phoneMask}}</div>
+              </div>
+              <address>
+                <div>{{customer.address}}</div>
+                <div>City and Country</div>
+              </address>
+            
+            <div class="card-block">
+                <button class="card-link-right" title="edit customer" 
+                  routerLink="/customer/{{customer.cid}}" class="card-link-right">
+                    <i class="mi mi-edit"></i>
+                </button>
+                <button class="card-link-right" title="delete customer"
+                  (click)="delete(customer)">
+                  <i class="mi mi-delete"></i>
+                </button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

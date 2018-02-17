@@ -15,14 +15,16 @@ export class NewCustomerComponent implements OnInit {
   ngOnInit() {
   }
 
-  add(name: string, address: string): void {
+  add(name: string, address: string, phone: string): void {
     name = name.trim();
     address = address.trim();
-    if (!name || !address) { return; }
+    phone = phone.trim();
+    if (!name || !address || !phone) { return; }
 
     let customer = new Customer();
     customer.name = name;
     customer.address = address;
+    customer.phone = phone;
 
     this.customerService.addCustomer(customer);
     this.goBack();
