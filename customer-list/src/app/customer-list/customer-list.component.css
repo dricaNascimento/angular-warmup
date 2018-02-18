@@ -5,5 +5,9 @@
 .box1 { 
   grid-column-start: 1; 
   grid-row-start: 1; 
-  grid-row-end: 3;
+  grid-row-end: 5;
+}
+h6{
+  font-weight: bold;
+  color: #444;
 }

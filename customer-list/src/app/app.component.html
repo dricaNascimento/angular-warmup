@@ -1,13 +1,27 @@
 <app-navigation-bar></app-navigation-bar>
 <main>
     <section class="filter">
-        <ul class="nav">
-            <li class="nav-item" *ngIf="!customer">
-                <a routerLink="/customers/new">
-                    <i class="mi mi-person-add"></i> New customer
-                </a>
-            </li>
-        </ul>
+        <div class="row">
+            <div class="col-lg-9">
+                <ul class="nav">
+                    <li class="nav-item" *ngIf="!customer">
+                        <a class="btn btn-success" routerLink="/customers/new">
+                            <i class="mi mi-person-add"></i> New customer
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-secondary btn-custom" type="button">
+                            <i class="mi mi-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
     </section>
     <section class="list">
         <router-outlet></router-outlet>

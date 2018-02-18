@@ -4,32 +4,57 @@
         <div class="card"> 
           <div class="card-body">
             
-              <div class="wrapper">
-                <div class="box1">
-                  <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAi_AAAAJDkxOWE3NjRlLWE5NGYtNGQ4Mi1iNTBmLTZhMDVkMzIwYmJmMw.jpg" alt="..." class="rounded-circle" style="width: 55px;">
-                </div>
-                <div class="box2">
-                  <h6 class="card-title">{{customer.name}}</h6>
-                </div>
-                <div class="box3">{{customer.phone | phoneMask}}</div>
+            <div class="wrapper">
+              <div class="box1">
+                <img src="https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAi_AAAAJDkxOWE3NjRlLWE5NGYtNGQ4Mi1iNTBmLTZhMDVkMzIwYmJmMw.jpg" alt="..." class="rounded-circle" style="width: 55px;">
               </div>
-              <address>
+              
+              <div class="box2">
+                <h6 class="card-title">{{customer.name}}</h6>
+              </div>
+
+              <div class="box3">
+                {{customer.phone | phoneMask}}
+              </div>
+
+              <address class="box4">
                 <div>{{customer.address}}</div>
-                <div>City and Country</div>
+                <div>Jardim Europa</div>
+                <div>Bragança Paulista - SP</div>
               </address>
+            </div>
             
             <div class="card-block">
                 <button class="card-link-right" title="edit customer" 
-                  routerLink="/customer/{{customer.cid}}" class="card-link-right">
-                    <i class="mi mi-edit"></i>
+                  routerLink="/customer/{{customer.cid}}">
+                  <i class="mi mi-edit"></i>
                 </button>
+
                 <button class="card-link-right" title="delete customer"
                   (click)="delete(customer)">
                   <i class="mi mi-delete"></i>
                 </button>
             </div>
+
           </div>
       </div>
     </div>
   </div>
+  <!--div class="row">
+      <nav aria-label="...">
+          <ul class="pagination">
+              <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Previous</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item active">
+              <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+              </li>
+          </ul>
+      </nav>
+  </div-->
 </div>
